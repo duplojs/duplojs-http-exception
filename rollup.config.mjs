@@ -4,14 +4,14 @@ import json from "@rollup/plugin-json";
 
 export default defineConfig([
 	{
-		input: "scripts/",
+		input: "scripts/index.ts",
 		output: [
 			{
-				file: "dist/.mjs",
+				file: "dist/httpException.mjs",
 				format: "esm"
 			},
 			{
-				file: "dist/.cjs",
+				file: "dist/httpException.cjs",
 				format: "cjs",
 			}
 		],

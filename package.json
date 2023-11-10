@@ -6,11 +6,11 @@
   "repository": "https://github.com/duplojs/duplojs-http-exception",
   "license": "ISC",
   "keywords": [],
-  "types": "./types/scripts/.ts",
+  "types": "./types/scripts/index.d.ts",
   "exports": {
     "default": {
-      "import": "./dist/.mjs",
-      "require": "./dist/.cjs"
+      "import": "./dist/httpException.mjs",
+      "require": "./dist/httpException.cjs"
     }
   },
   "files": [
@@ -25,7 +25,8 @@
     "build": "rollup --config && npx tsc"
   },
   "dependencies": {
-    "@duplojs/duplojs": ">=0.13.20"
+    "@duplojs/duplojs": ">=0.13.20",
+    "@duplojs/editor-tools": ">=0.1.0"
   },
   "devDependencies": {
     "@duplojs/worker-testing": "^0.1.4",
