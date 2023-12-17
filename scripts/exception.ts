@@ -82,10 +82,18 @@ export class MovedPermanentlyHttpException extends CustomHttpException{
 	url: string;
 }
 
-export class FoundHttpException extends HttpException{
-	constructor(info?: string, data?: unknown){
-		super(302, info, data);
+export class FoundHttpException extends CustomHttpException{
+	constructor(url: string, info?: string){
+		super(302, info);
+		this.url = url;
 	}
+
+	handler(request: Request, response: Response){
+		if(this.info)response.info(this.info);
+		response.code(this.code).redirect(this.url);
+	}
+
+	url: string;
 }
 
 export class SeeOtherHttpException extends HttpException{
