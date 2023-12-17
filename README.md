@@ -15,7 +15,7 @@ duplo.use(duploHttpException);
 
 duplo.declareRoute("GET", "/")
 .handler(() => {
-	throw new OkHttpException("successful", "hello-world");
+    throw new OkHttpException("successful", "hello-world");
 });
 
 duplo.launch();

@@ -32,5 +32,15 @@ export default workerTesting(
 				body: zod.literal("hello-world"),
 			}
 		},
+		{
+			title: "redirect found",
+			url: "http://localhost:1506/test/4",
+			method: "GET",
+			response: {
+				code: 200,
+				info: "s",
+				body: zod.literal("hello-world"),
+			}
+		},
 	]
 );
