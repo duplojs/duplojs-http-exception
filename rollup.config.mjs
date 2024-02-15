@@ -24,4 +24,25 @@ export default defineConfig([
 			json(),
 		]
 	},
+	{
+		input: "scripts/global.ts",
+		output: [
+			{
+				file: "dist/httpExceptionGlobal.mjs",
+				format: "esm"
+			},
+			{
+				file: "dist/httpExceptionGlobal.cjs",
+				format: "cjs",
+			}
+		],
+		plugins: [
+			esbuild({
+				include: /\.[jt]sx?$/,
+				exclude: /node_modules/,
+				tsconfig: "tsconfig.json",
+			}),
+			json(),
+		]
+	},
 ]);

@@ -2,7 +2,7 @@ import Duplo from "@duplojs/duplojs";
 import {parentPort} from "worker_threads";
 import duploHttpException, {FoundHttpException, NotFoundHttpException, OkHttpException, PermanentRedirectHttpException} from "../../scripts/index";
 
-const duplo = Duplo({port: 1506, host: "localhost"});
+const duplo = Duplo({port: 1506, host: "localhost", environment: "DEV"});
 duplo.use(duploHttpException);
 
 duplo.declareRoute("GET", "/test/1")
