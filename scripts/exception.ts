@@ -25,38 +25,50 @@ export abstract class CustomHttpException extends HttpException{
 */
 export class OkHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(200, info, data);
+		super(OkHttpException.code, info, data);
 	}
+
+	static readonly code = 200;
 }
 
 export class CreatedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(201, info, data);
+		super(CreatedHttpException.code, info, data);
 	}
+
+	static readonly code = 201;
 }
 
 export class AcceptedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(202, info, data);
+		super(AcceptedHttpException.code, info, data);
 	}
+
+	static readonly code = 202;
 }
 
 export class NoContentHttpException extends HttpException{
 	constructor(info?: string){
-		super(204, info);
+		super(NoContentHttpException.code, info);
 	}
+
+	static readonly code = 204;
 }
 
 export class ResetContentHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(205, info, data);
+		super(ResetContentHttpException.code, info, data);
 	}
+
+	static readonly code = 205;
 }
 
 export class PartialContentHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(206, info, data);
+		super(PartialContentHttpException.code, info, data);
 	}
+
+	static readonly code = 206;
 }
 
 /*
@@ -64,13 +76,15 @@ export class PartialContentHttpException extends HttpException{
 */
 export class MultipleChoicesHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(300, info, data);
+		super(MultipleChoicesHttpException.code, info, data);
 	}
+
+	static readonly code = 300;
 }
 
 export class MovedPermanentlyHttpException extends CustomHttpException{
 	constructor(url: string, info?: string){
-		super(301, info);
+		super(MovedPermanentlyHttpException.code, info);
 		this.url = url;
 	}
 
@@ -80,11 +94,13 @@ export class MovedPermanentlyHttpException extends CustomHttpException{
 	}
 
 	url: string;
+
+	static readonly code = 301;
 }
 
 export class FoundHttpException extends CustomHttpException{
 	constructor(url: string, info?: string){
-		super(302, info);
+		super(FoundHttpException.code, info);
 		this.url = url;
 	}
 
@@ -94,23 +110,29 @@ export class FoundHttpException extends CustomHttpException{
 	}
 
 	url: string;
+
+	static readonly code = 302;
 }
 
 export class SeeOtherHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(303, info, data);
+		super(SeeOtherHttpException.code, info, data);
 	}
+
+	static readonly code = 303;
 }
 
 export class NotModifiedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(304, info, data);
+		super(NotModifiedHttpException.code, info, data);
 	}
+
+	static readonly code = 304;
 }
 
 export class TemporaryRedirectHttpException extends CustomHttpException{
 	constructor(path: string, info?: string){
-		super(307, info);
+		super(TemporaryRedirectHttpException.code, info);
 		this.path = path;
 	}
 
@@ -120,11 +142,13 @@ export class TemporaryRedirectHttpException extends CustomHttpException{
 	}
 
 	path: string;
+
+	static readonly code = 307;
 }
 
 export class PermanentRedirectHttpException extends CustomHttpException{
 	constructor(path: string, info?: string){
-		super(308, info);
+		super(PermanentRedirectHttpException.code, info);
 		this.path = path;
 	}
 
@@ -134,6 +158,8 @@ export class PermanentRedirectHttpException extends CustomHttpException{
 	}
 
 	path: string;
+
+	static readonly code = 308;
 }
 
 
@@ -142,140 +168,186 @@ export class PermanentRedirectHttpException extends CustomHttpException{
 */
 export class BadRequestHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(400, info, data);
+		super(BadRequestHttpException.code, info, data);
 	}
+
+	static readonly code = 400;
 }
 
 export class UnauthorizedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(401, info, data);
+		super(UnauthorizedHttpException.code, info, data);
 	}
+
+	static readonly code = 401;
 }
 
 export class ForbiddenHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(403, info, data);
+		super(ForbiddenHttpException.code, info, data);
 	}
+
+	static readonly code = 403;
 }
 
 export class NotFoundHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(404, info, data);
+		super(NotFoundHttpException.code, info, data);
 	}
+
+	static readonly code = 404;
 }
 
 export class MethodNotAllowedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(405, info, data);
+		super(MethodNotAllowedHttpException.code, info, data);
 	}
+
+	static readonly code = 405;
 }
 
 export class NotAcceptableHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(406, info, data);
+		super(NotAcceptableHttpException.code, info, data);
 	}
+
+	static readonly code = 406;
 }
 
 export class ProxyAuthenticationRequiredHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(407, info, data);
+		super(ProxyAuthenticationRequiredHttpException.code, info, data);
 	}
+
+	static readonly code = 407;
 }
 
 export class RequestTimeoutHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(408, info, data);
+		super(RequestTimeoutHttpException.code, info, data);
 	}
+
+	static readonly code = 408;
 }
 
 export class ConflictHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(409, info, data);
+		super(ConflictHttpException.code, info, data);
 	}
+
+	static readonly code = 409;
 }
 
 export class GoneHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(410, info, data);
+		super(GoneHttpException.code, info, data);
 	}
+
+	static readonly code = 410;
 }
 
 export class LengthRequiredHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(411, info, data);
+		super(LengthRequiredHttpException.code, info, data);
 	}
+
+	static readonly code = 411;
 }
 
 export class PreconditionFailedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(412, info, data);
+		super(PreconditionFailedHttpException.code, info, data);
 	}
+
+	static readonly code = 412;
 }
 
 export class PayloadTooLargeHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(413, info, data);
+		super(PayloadTooLargeHttpException.code, info, data);
 	}
+
+	static readonly code = 413;
 }
 
 export class UriTooLongHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(414, info, data);
+		super(UriTooLongHttpException.code, info, data);
 	}
+
+	static readonly code = 414;
 }
 
 export class UnsupportedMediaTypeHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(415, info, data);
+		super(UnsupportedMediaTypeHttpException.code, info, data);
 	}
+
+	static readonly code = 415;
 }
 
 export class RangeNotSatisfiableHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(416, info, data);
+		super(RangeNotSatisfiableHttpException.code, info, data);
 	}
+
+	static readonly code = 416;
 }
 
 export class ExpectationFailedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(417, info, data);
+		super(ExpectationFailedHttpException.code, info, data);
 	}
+
+	static readonly code = 417;
 }
 
 export class ImATeapotHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(418, info, data);
+		super(ImATeapotHttpException.code, info, data);
 	}
+
+	static readonly code = 418;
 }
 
 export class UpgradeRequiredHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(426, info, data);
+		super(UpgradeRequiredHttpException.code, info, data);
 	}
+
+	static readonly code = 426;
 }
 
 export class PreconditionRequiredHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(428, info, data);
+		super(PreconditionRequiredHttpException.code, info, data);
 	}
+
+	static readonly code = 428;
 }
 
 export class TooManyRequestsHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(429, info, data);
+		super(TooManyRequestsHttpException.code, info, data);
 	}
+
+	static readonly code = 429;
 }
 
 export class RequestHeaderFieldsTooLargeHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(431, info, data);
+		super(RequestHeaderFieldsTooLargeHttpException.code, info, data);
 	}
+
+	static readonly code = 431;
 }
 
 export class UnavailableForLegalReasonsHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(451, info, data);
+		super(UnavailableForLegalReasonsHttpException.code, info, data);
 	}
+
+	static readonly code = 451;
 }
 
 /*
@@ -283,54 +355,72 @@ export class UnavailableForLegalReasonsHttpException extends HttpException{
 */
 export class InternalServerErrorHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(500, info, data);
+		super(InternalServerErrorHttpException.code, info, data);
 	}
+
+	static readonly code = 500;
 }
 
 export class NotImplementedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(501, info, data);
+		super(NotImplementedHttpException.code, info, data);
 	}
+
+	static readonly code = 501;
 }
 
 export class BadGatewayHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(502, info, data);
+		super(BadGatewayHttpException.code, info, data);
 	}
+
+	static readonly code = 502;
 }
 
 export class ServiceUnavailableHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(503, info, data);
+		super(ServiceUnavailableHttpException.code, info, data);
 	}
+
+	static readonly code = 503;
 }
 
 export class GatewayTimeoutHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(504, info, data);
+		super(GatewayTimeoutHttpException.code, info, data);
 	}
+
+	static readonly code = 504;
 }
 
 export class HttpVersionNotSupportedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(505, info, data);
+		super(HttpVersionNotSupportedHttpException.code, info, data);
 	}
+
+	static readonly code = 505;
 }
 
 export class VariantAlsoNegotiatesHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(506, info, data);
+		super(VariantAlsoNegotiatesHttpException.code, info, data);
 	}
+
+	static readonly code = 506;
 }
 
 export class NotExtendedHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(510, info, data);
+		super(NotExtendedHttpException.code, info, data);
 	}
+
+	static readonly code = 510;
 }
 
 export class NetworkAuthenticationRequiredHttpException extends HttpException{
 	constructor(info?: string, data?: unknown){
-		super(511, info, data);
+		super(NetworkAuthenticationRequiredHttpException.code, info, data);
 	}
+
+	static readonly code = 511;
 }

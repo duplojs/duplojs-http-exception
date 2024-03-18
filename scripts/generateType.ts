@@ -5,11 +5,11 @@ import * as he from "./exception";
 const workDir = process.cwd();
 
 writeFileSync(
-	resolve(workDir, "scripts/__types.ts"),
+	resolve(workDir, "globals.d.ts"),
 	`
 export {};
 declare global {
-	${Object.keys(he).map(v => `const ${v}: typeof import("./exception")["${v}"]`).join(";\n\t")};
+	${Object.keys(he).map(v => `const ${v}: typeof import("./types/scripts/exception")["${v}"]`).join(";\n\t")};
 }
 `
 );
