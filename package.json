@@ -6,35 +6,26 @@
   "repository": "https://github.com/duplojs/duplojs-http-exception",
   "license": "ISC",
   "keywords": [],
-  "typesVersions": {
-    "*": {
-      "global": [
-        "./types/scripts/global.d.ts"
-      ],
-      "*": [
-        "./types/scripts/index.d.ts"
-      ]
-    }
-  },
+  "types": "./types/scripts/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/httpException.mjs",
-      "require": "./dist/httpException.cjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
-	"./global": {
-	  "import": "./dist/httpExceptionGlobal.mjs",
-      "require": "./dist/httpExceptionGlobal.cjs"
+	"./globals": {
+	  "types": "./globals.d.ts"
 	}
   },
   "files": [
     "dist",
-    "types"
+    "types",
+	"globals.d.ts"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "rollup --config && npx tsc -p tsconfig.build.json",
+    "build": "rollup --config && npx tsc -p tsconfig.build.json && npm run generate:type",
 	"test:e2e": "node --require sucrase/register test",
 	"test:types": "tsc",
 	"generate:type": "node --require sucrase/register scripts/generateType.ts"
