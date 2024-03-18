@@ -7,32 +7,11 @@ export default defineConfig([
 		input: "scripts/index.ts",
 		output: [
 			{
-				file: "dist/httpException.mjs",
+				file: "dist/index.mjs",
 				format: "esm"
 			},
 			{
-				file: "dist/httpException.cjs",
-				format: "cjs",
-			}
-		],
-		plugins: [
-			esbuild({
-				include: /\.[jt]sx?$/,
-				exclude: /node_modules/,
-				tsconfig: "tsconfig.json",
-			}),
-			json(),
-		]
-	},
-	{
-		input: "scripts/global.ts",
-		output: [
-			{
-				file: "dist/httpExceptionGlobal.mjs",
-				format: "esm"
-			},
-			{
-				file: "dist/httpExceptionGlobal.cjs",
+				file: "dist/index.cjs",
 				format: "cjs",
 			}
 		],
