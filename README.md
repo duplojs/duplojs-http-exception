@@ -6,7 +6,7 @@
 npm i @duplojs/http-exception
 ```
 
-## Utilisation
+## Implémentation
 ```ts
 import Duplo from "@duplojs/duplojs";
 import duploHttpException, {OkHttpException} from "@duplojs/http-exception";
@@ -20,4 +20,24 @@ duplo.declareRoute("GET", "/")
 });
 
 duplo.launch();
+```
+
+## Implémentation globales
+```ts
+duplo.use(duploHttpException, {
+    ...
+    globals: true
+});
+```
+
+tsconfig.json
+```json
+{
+  "compilerOptions": {
+    ...
+    "types": [
+        "@duplojs/http-exception/globals"
+    ],
+  }
+}
 ```
