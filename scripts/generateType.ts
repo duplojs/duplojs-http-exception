@@ -9,7 +9,7 @@ writeFileSync(
 	`
 export {};
 declare global {
-	${Object.keys(he).map(v => `const ${v}: typeof import("./types/scripts/exception")["${v}"]`).join(";\n\t")};
+	${Object.keys(he).map(v => `const ${v}: typeof import("./types/exception")["${v}"]`).join(";\n\t")};
 }
 `
 );
