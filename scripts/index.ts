@@ -41,7 +41,7 @@ export default function duploHttpException(
 				code("first_line_second_catch", /* js */`
 					if(error instanceof this.extensions.HttpException){
 						if(error instanceof this.extensions.CustomHttpException)error.handler(request, response);
-						response.code(error.code).info(error.info).send(error.data);
+						response.code(error.code).info(error.info).send(error.body);
 					}
 				`);
 			}
